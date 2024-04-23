@@ -1,0 +1,14 @@
+Pilares de JAVA:
+
+- classe e objeto;
+- Encapsulamento
+- Abstração
+- Herança
+- Polimorfismo
+
+JVM e Bytecode:
+WORA: write once, run anywhere
+o código-fonte é compilado para bytecode e não está vinculado a qualquer tipo de plataforma(hardware ou software em que o programa é executado). 
+Os programas JAVA são compilados para gerar o arquivo bytecode. A JVM interpreta o bytecode durante a execução do programa.
+
+Multi-thread: executa várias threads simultaneamente. Uma thread é um subprocesso independente do programa em execução que compartilha recursos.

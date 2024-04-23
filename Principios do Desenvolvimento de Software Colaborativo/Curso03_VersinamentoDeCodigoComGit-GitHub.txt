@@ -1,0 +1,14 @@
+O que é versionamento de código?
+
+Sistemas de controle de versão (VCS):
+- registra histórico de atualização de um arquivo;
+- gerencia alterações, datas, autor, etc;
+- entrega organização, controle e segurança.
+
+Sistemas de controle de versão centralizado(CVCS): 
+
+- Exemplo: CVS e Subversion
+
+Sistemas de controle de versão distribuído(DVCS): 
+
+- Exemplo: Git e Mercurial
