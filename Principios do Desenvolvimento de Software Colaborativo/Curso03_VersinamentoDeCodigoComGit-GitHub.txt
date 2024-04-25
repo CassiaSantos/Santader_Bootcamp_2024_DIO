@@ -1,4 +1,4 @@
-O que é versionamento de código?
+======================= Versionamento de código =======================
 
 Sistemas de controle de versão (VCS):
 - registra histórico de atualização de um arquivo;
@@ -6,9 +6,86 @@ Sistemas de controle de versão (VCS):
 - entrega organização, controle e segurança.
 
 Sistemas de controle de versão centralizado(CVCS): 
-
+1 servior (banco de versão) contém todos os arquivos que farão o controle de versão
 - Exemplo: CVS e Subversion
 
 Sistemas de controle de versão distribuído(DVCS): 
+O banco de versão é clonado localmente e permite edições mesmo que o servidor esteja fora do ar;
+Clona o repositório completo, o que incui o histótico de versões:
+- cada clone é como um backup.
+- possibilita um fluxo de trabalho flexível e sem conexão com a rede.
+- Exemplo: Git(principal utilizado atualmente) e Mercurial
 
-- Exemplo: Git e Mercurial
+
+======================= GIT =======================
+GIT: https://git-scm.com
+- gratuito e open source
+- branching(ramificações) e merging (fusões) eficientes
+- leve e rápido
+
+Comandos básicos: 
+- git clone: "clona" um repositório GIT existente para um novo diretório (pasta) local.
+- git commit: "grava" alterações no repositório;
+- git pull: "puxa" as alterações do repositório remoto para o local(busca e mescla);
+- git push: "empurra" as alterações do repositório local para o remoto.
+
+Instalação:
+Windows:
+GIT: https://git-scm.com/downloads
+- se certificar de que na "Windows EXplorer Integration" as opções "Git Bash Here" e "Git GUI Here" estejam selecionadas;
+- utilizar o VIM como editor de texto padrão;
+
+Linux:
+Para saber a versão do Git, digitar git --version
+
+Variáveis GIT:
+- global: configurações de usuário (do sistema operacional);
+- system: configurações de sistema, abrigando todos os usuários (do sistema operacional);
+- local: configurações do repositório/pasta em que o projeto estará armazenado;
+
+Configuração:
+git config --global user.name "myName"
+git config --global user.email myemail@email.com
+
+git config init.defaultBranch //para saber o nome da nossa branch principal
+git config --global init.defaultBranch main //altera o nome da branch principal
+
+Criação de Tokens:
+foto de perfil >> configurações >> developer settings >> personal access tokens >> Tokens (classic) >> Generate new token (classic)
+inserir senha >> note: descrição do token >> tempo de expiração >> selecionar permissões daquele token >> Generate Token >> copiar token
+
+Salvando token na máquina pelo git Bash:
+git config credential.helper store
+git config --global credential.helper store
+
+Inserindo token No Git Bash:
+1. git clone "https do repositório";
+2. Inserir nome de usuário do GitHub;
+3. inserir token no campo da senha de usuário do gitHub;
+
+Autenticação por chave SSH
+Protocolo (de rede) SSH possibilita que meu computador local e o servidor remoto (GitHub) se comuniquem de forma segura e criptografada por meio da internet. Esse Protocolo utiliza o conceito de chave pública e chave privada. 
+1. foto de perfil >> settings >> SSH and GPG keys >> ver documentação
+2. Abra Git Bash.
+3. ssh-keygen -t ed25519-sk -C "your_email@example.com", substituindo o endereço de email usado no exemplo pelo endereço de email associado à sua conta no GitHub.
+4. enter para salvar no local padrão
+5. digitar uma senha
+6. Executar SSH agente com o comando: eval "$(ssh-agent -s)" + Enter
+7. SSH-add ~/.ssh/id_ed25519 + Enter//endereço da chave privada 
+8. Senha local digitada anteriormente 
+9. Na página de chaves SSH do GitHub, clique em "New SSH key"; 
+10. Title: máquina que pertence a chave; Type: Autentication key; digitar chave/
+
+Verificando chaves SSH:
+$ cd ~/.ssh
+$ ls
+$ cat id_ed25519.pub
+
+Tornando uma pasta normal em repositório:
+1. git init //na pasta
+2. git remote add origin URL // do repositório remoto no github
+======================= GitHub =======================
+GitHub: https://github.com/
+É uma plataforma de hospedagem de código para controle de versão com Git e colaboração utilizada mundialmente e com comunidade ativa.
+- foi criado em 2008 e comprado pela Microsoft em 2018 por 7,5 bilhões de dólares.
+- o GIT atua no banco de versões e o GitHub é o servidor que hospeda o código (repositório remoto);
