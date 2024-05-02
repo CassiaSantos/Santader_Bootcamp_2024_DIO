@@ -84,6 +84,21 @@ $ cat id_ed25519.pub
 Tornando uma pasta normal em repositório:
 1. git init //na pasta
 2. git remote add origin URL // do repositório remoto no github
+3. git add <arquivo> //arquivo entra na área de preparação.
+4. git commit -m"mensagem do commit"
+
+Adicionar arquivo ao gitignore:
+echo <diretorio/> > .gitignore 
+
+Remover arquivo da gitignore:
+echo > .gitignore 
+
+Fazer com que o Git reconheça um diretório vazio:
+mkdir <diretório>
+touch <diretorio>/.githeep
+git add .
+git commit -m"adiciona todos os arqivos da area de preparação ao servidor remoto"
+git log // exibe histórico de commits
 ======================= GitHub =======================
 GitHub: https://github.com/
 É uma plataforma de hospedagem de código para controle de versão com Git e colaboração utilizada mundialmente e com comunidade ativa.
