@@ -117,6 +117,7 @@ git commit -m"adiciona todos os arqivos da area de preparação ao servidor remo
 git log // exibe histórico de commits
 
 Repositorio Local --> Remoto
+git push -u <repositorio remoto> <branch> origin main
 git push -u origin main
 
 Repositorio  Remoto --> Local
@@ -124,8 +125,40 @@ git pull
 
 ======================= Trabalhando com branches =======================
 Branch principal: Main
-Uma branch é uma ramificação do projeto. 
+Uma branch é uma ramificação do projeto: um ponteiro móvel para um commit no histórico do repositório.
 
+Trocar de branch:
+git checkout -b <nomeBranch>
+
+Ver último commit de cada branch:
+git branch -v
+
+Mesclar branches:
+git merge <nomeBranch>
+
+ver branches existentes:
+git branch
+
+deletar branch após ser mesclada com a main:
+git branch -d <nomeBranch>
+
+********pesquisar sobre convenções para o nome de branchs e commits
+
+CONFLITO DE BRANCHES (DE MERGE):
+- ocorre quando temos alterações concorrentes: git retorna erro para que seja escolhido qual alteração manter.
+
+git pull = git fetch + git pull
+uso o comando git fetch quando quero baixar as alterações do repositório remoto mas ainda não quero mesclá-las com o repo local.
+git fetch <repositório remoto> <branch>
+git fetch origin main
+ver diferença entre branchs do repositório local e remoto:
+git diff main origin/main
+mesclar conteúdo:
+git merge origin/main
+
+CLONAR 1 BRANCH DE REPOSITÓRIO COM VÁRIAS BRANCHES:
+git clone <URL do repositório a ser clonado> --branch <nome branch> --single-branch
+- se o nome da branch não for informado, será clonada a branch principal.
 ======================= GitHub =======================
 GitHub: https://github.com/
 É uma plataforma de hospedagem de código para controle de versão com Git e colaboração utilizada mundialmente e com comunidade ativa.
