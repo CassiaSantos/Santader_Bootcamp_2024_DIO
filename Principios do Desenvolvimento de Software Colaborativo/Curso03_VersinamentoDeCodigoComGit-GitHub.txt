@@ -121,6 +121,11 @@ git push -u origin main
 
 Repositorio  Remoto --> Local
 git pull 
+
+======================= Trabalhando com branches =======================
+Branch principal: Main
+Uma branch é uma ramificação do projeto. 
+
 ======================= GitHub =======================
 GitHub: https://github.com/
 É uma plataforma de hospedagem de código para controle de versão com Git e colaboração utilizada mundialmente e com comunidade ativa.
