@@ -16,7 +16,23 @@ Clona o repositório completo, o que incui o histótico de versões:
 - possibilita um fluxo de trabalho flexível e sem conexão com a rede.
 - Exemplo: Git(principal utilizado atualmente) e Mercurial
 
+Remover versionamento de um repositório:
+1. No repositório, digitar o comando: rm -rf .git //o conteúdo .git será recursivamente removido à força.
+2. digite o comando git status e verifique que não é mais um repositório GIT.
 
+Restaurar conteúdo da arvore de trabalho:
+1. git restore <arquivo.extensão> //esse comando descarta todas as alterações realizadas localmente.
+
+Corrigir mensagem do último commit:
+git commit --amend -m"nova mensagem do último commit"
+
+Desafazer commit (retornar versão):
+1. git log //para visualizar historico de commits
+2. copiar hash do commit a ser desfeito
+3. git reset --soft <hash do commit a ser desfeito> //retorna os arquivos posteiores ao commit para a stage in area (area de preparação)
+3. git reset --mixed <hash do commit a ser desfeito> //retorna os arquivos posteiores ao commit para a area de trabalho (untracked files: git não ainda não reconhece esse arquivos)
+3. git reset --hard <hash do commit a ser desfeito> //apaga os arquivos posteiores ao commit de hash informado
+4. dê um git reflog para visualizar o histórico de commits
 ======================= GIT =======================
 GIT: https://git-scm.com
 - gratuito e open source
