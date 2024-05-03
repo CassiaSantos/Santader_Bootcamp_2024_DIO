@@ -1,1 +1,23 @@
-Introdução
+Introdução:
+REGRAS/CONVENÇÕES DA LINGUAGEM JAVA:
+- Todo código Java precisa existir dentra da pasta src do projeto;
+- todo arquivo java tem extenção .java;
+- Todo nome de arquivo e classe precisa iniciar por letra maiúscula. Em nomes compostos, o segundo nome também precisa iniciar por letra maiúscula;
+- A classe deve possuir o mesmo nome do arquivo ".java";
+- Nomes de variáveis iniciam por letra minuscula. Em nomes compostos, a 1ª letra da segunda palavra inicia por letra maiúscula --> camelCase;
+- Nomes de constantes são escitos com todas as letras em maiúsculo e nomes compostos são separados por underline;
+- Nomes de variáveis deve conter apenas letras, números, underline e cifrão. Exemplo: nomeDe1variavel$;
+- Nomes de variáveis nunca devem ser iniciados por números;
+- O nome deve ser único dentro do escopo.
+
+DECLARAÇÃO DE VARIÁVEIS:
+tipo nomeBemDefinido = valor
+Exemplo:
+int numero01 = 50;
+
+DECLARAÇÃO DE MÉTODOS:
+tipoDeRetorno nomeObjetivoNoInfinitivo(parametros){}
+exemplo: 
+int somar(int num1, int num2){
+  //codigo aqui...
+}
