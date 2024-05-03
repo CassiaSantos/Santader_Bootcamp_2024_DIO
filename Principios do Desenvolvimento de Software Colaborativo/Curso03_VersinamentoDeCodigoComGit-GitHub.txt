@@ -115,8 +115,18 @@ touch <diretorio>/.githeep
 git add .
 git commit -m"adiciona todos os arqivos da area de preparação ao servidor remoto"
 git log // exibe histórico de commits
+
+Repositorio Local --> Remoto
+git push -u origin main
+
+Repositorio  Remoto --> Local
+git pull 
 ======================= GitHub =======================
 GitHub: https://github.com/
 É uma plataforma de hospedagem de código para controle de versão com Git e colaboração utilizada mundialmente e com comunidade ativa.
 - foi criado em 2008 e comprado pela Microsoft em 2018 por 7,5 bilhões de dólares.
 - o GIT atua no banco de versões e o GitHub é o servidor que hospeda o código (repositório remoto);
+
+Web Editor GitHub:
+logado na conta github, clicar no repositório e digitar "."
+Um editor VS code será carregado.
