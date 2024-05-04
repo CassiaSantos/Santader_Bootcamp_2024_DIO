@@ -1,4 +1,6 @@
-Introdução:
+Crtl + shift + P
+
+======================================= INTRODUÇÃO E ANATOMIA DE CLASSES =======================================
 REGRAS/CONVENÇÕES DA LINGUAGEM JAVA:
 - Todo código Java precisa existir dentra da pasta src do projeto;
 - todo arquivo java tem extenção .java;
@@ -21,3 +23,64 @@ exemplo:
 int somar(int num1, int num2){
   //codigo aqui...
 }
+
+IDENTAÇÃO:
+Ação de tabular o código para que ele adquira melhor visualização a nível de escopo da proposta da implementação/código;
+
+ORGANIZAÇÃO DE ARQUIVOS:
+- exigida a organização em packages (pacotes) a partir do crescimento do sistema;
+
+* Convenção do nome de pacotes:
+prefixos:
+com - comercial;
+org - organizacional
+opensource ou org - opensource
+
+* Exemplo de nomeclatura de pacote:
+Uma empresa com nome HyperTech vende softwares para a comunidade. O projeto atual é um sistema de notificação:
+com.hypertech.notification
+
+A partir dele, pode haver os pacotes:
+com.hypertech.notification.app
+com.hypertech.notification.model
+com.hypertech.notification.util
+com.hypertech.notification.services
+
+JAVA BEANS:
+Convenções da comunidade Java para a forma escrita universal de classes, atributos, métodos e pacotes.
+
+* Sugestão do nome de variáveis:
+- ser claro, sem abreviações ou definição sem sentido;
+- estar sempre no singular, exceto quando se referir a um array ou coleção;
+- definir todas no mesmo idioma;
+
+* Sugestão para declaração de métodos:
+- devem ser nomeados com verbos, através de uma mistura de letras minúsculas e maiúsculas;
+- de forma geral, todas as letras que compõem o nome devem ser mantidas em minúsculo, com exceção da primeira letra de cada palavra composta a partir da segunda palavra; 
+
+======================================= TIPOS E VARIÁVEIS =======================================
+TIPOS DE DADOS OU PRIMITIVE TYPES:
+Java possui 8 tipos primitivos: Não são considerados objetos e são armazenados diretamente na pilha de memória (memory stack);
+byte: ocupa 1 byte de memória e tem valor mínimo de -128 e valor máximo de 127;
+short: ocupa 2 bytes de memória e tem valor mínimo de -32.768 e valor máximo de ...;
+int: ocupa 4 bytes de memória e tem valor mínimo de -2.147.483.648 e valor máximo de ...;
+long: ocupa 8 bytes de memória e tem valor mínimo de -9.223.372.036.854.775.808 e valor máximo de ...;
+float: ocupa 4 bytes de memória e tem valor mínimo de -3,4028E + 38 e valor máximo de 3,4028E + 38;
+double: ocupa 8 bytes de memória e tem valor mínimo de -1,7976E + 308 e valor máximo de 1,7976E + 308;
+boolean:
+char 
+- A JVM sempre tenta converter valores literais para int.
+- float mantém a precisão decimal somente entre 6 e 7 dígitos, fazendo com que o double seja mais utilizado;
+
+VARIÁVEL:
+Variável é um identificação de um espaço em momério utilizando pelo programa. Em java, ela é composta por <tipo de dado> <nomeDaVariavel> <atribuicaoDeValorOpcional>
+Exemplo: int myAge = 20;
+- valores atribuidos a uma variável float, devem finalizar com "F" para que a JVM não tente convertê-lo para um long. Exemplo: float pi = 3.14F;
+- valores atribuidos a uma variável long, devem finalizar com "L" para que a JVM não tente convertê-lo para um int. Exemplo: long cpf 12345678910L;
+
+CONSTANTE:
+É um valor armazendo em memória que não pode ser modificado depois de declarado. Java utiliza a palavras reservada "final" para representar uma constante.
+- por Convenção, constantes são escritas sempre em CAIXA_ALTA
+Exemplo: final VALOR_DE_PI: 3.14;
+  
+======================================= OPERADORES =======================================
