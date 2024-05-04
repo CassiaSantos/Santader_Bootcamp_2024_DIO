@@ -168,3 +168,7 @@ GitHub: https://github.com/
 Web Editor GitHub:
 logado na conta github, clicar no repositório e digitar "."
 Um editor VS code será carregado.
+
+
+======================== Materiais complementares ==================
+Repositório Git de todo o código-fonte desenvolvido durante o curso: https://github.com/elidianaandrade/dio-curso-git-github
