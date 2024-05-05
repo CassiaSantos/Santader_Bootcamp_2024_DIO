@@ -159,3 +159,27 @@ uma varíavel declarada dentro de uma método, seu escopo delimitado a apenas o 
 
 *Escopo de bloco de função:
 uma varíavel declarada dentro de uma função é visível somente até as chaves delimitantes do bloco da função.
+
+======================================= PALAVRAS RESERVADAS =======================================
+São identificadores que possuem uma finalidade específica dentro da linguagem e não podem ser utilizada para nomear variáveis, atributos, métodos e classes.
+- no momento de gravação do curso (03/2022), java possuia 52 palavras reservadas.
+- todas são escritas em letra minúscula.
+
+*pacotes:
+- import
+- package;
+
+*modificadores de acesso:
+- public: acesso de qualquer classe;
+- private: acesso somente dentro da classe;
+- protected: acesso por classes do mesmo pacote e subclasses --> usada somente quando houver uma conecepção de herança;
+
+*tipos primitidos + void
+
+*modificadores de classe, variáveis ou métodos:
+- abstract
+- class
+- extends
+- final
+- implements 
+- interface, etc.
