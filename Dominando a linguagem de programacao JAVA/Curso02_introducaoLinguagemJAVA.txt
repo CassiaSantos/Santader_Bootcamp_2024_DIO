@@ -126,3 +126,23 @@ obs: inversão do sinal do valor: multiplica por -1;
 - permitem criar expressões lógicas maiores a partir da junçãp de 2 ou mais expressões;
 - (&&) operador lógico "E"; 
 - (||) operador lógico "OU"; 
+
+======================================= MÉTODOS =======================================
+Todas as ações das aplicações são denominadas de métodos;
+- métodos correspondem a funções ou subrotinas disponíveis dentro das classes;
+
+Critérios de nomeação de métodos:
+- devem ser nomeados como verbo;
+- seguir o padrão camelCase;
+
+*Atenção:
+Em java, não existe o conceito de métodos globais. Todos os métodos devem sempre ser definidos dentro de uma classe.
+
+Critério de definição de métodos:
+questionar constantemente até compreender:
+1. Qual a principal proposta/real finalidade do método?
+2. Se tem e qual o tipo de retorno esperado após a execução do método?
+- caso o método não retorne valor, será representado pela palavra-chave "void";
+2. Quais os parâmetros serão necessários para execução do método?
+4. o método possui risco de apresentar alguma exceção que será necessário tratar?
+5. Qual a visibilidade do método? Terá quer visível a toda a aplicação, somente em mesmo pacote, através de herança ou somente a nível de sua própria classe?
