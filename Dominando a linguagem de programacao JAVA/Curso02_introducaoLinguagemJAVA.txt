@@ -146,3 +146,16 @@ questionar constantemente até compreender:
 2. Quais os parâmetros serão necessários para execução do método?
 4. o método possui risco de apresentar alguma exceção que será necessário tratar?
 5. Qual a visibilidade do método? Terá quer visível a toda a aplicação, somente em mesmo pacote, através de herança ou somente a nível de sua própria classe?
+
+======================================= ESCOPO =======================================
+Pode ser entendido como o ambiente em que uma variável pode ser acessada. Em java, o escopo de variáveis vai de acordo com o bloco em que ela foi declarada.
+- A variável é criada no primeiro acesso à ela e se torna inacessável após o interpretador sair do bloco de execução do qual ela pertence.
+
+*Escopo de classe:
+uma varíavel declarada no corpo principal da classe é visível por todos os métodos dela.
+
+*Escopo de método:
+uma varíavel declarada dentro de uma método, seu escopo delimitado a apenas o corpo desse método, ou seja, dentro das chaves que delimitam esse método.
+
+*Escopo de bloco de função:
+uma varíavel declarada dentro de uma função é visível somente até as chaves delimitantes do bloco da função.
