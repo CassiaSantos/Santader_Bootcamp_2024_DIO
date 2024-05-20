@@ -1,1 +1,5 @@
 EXCEÇÃO: Fluxo inesperado do programa por erros de programação, regas de negócio, entradas indevidas, divisão por zero, abrir ou chamar arquivos que não existem.
+
+try: permite haver um bloco de código para ser testado quanto a erros enqaunto está sendo executado. Vem em par com a palvras catch;
+catch: permite definir um bloco de código a ser executado caso ocorra um erro no bloco try.
+finally: permite definir um bloco de código a ser executado independente de ocorrer um erro ou não. 
