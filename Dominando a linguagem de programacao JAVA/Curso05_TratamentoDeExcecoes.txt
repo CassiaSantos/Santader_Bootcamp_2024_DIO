@@ -3,3 +3,8 @@ EXCEÇÃO: Fluxo inesperado do programa por erros de programação, regas de neg
 try: permite haver um bloco de código para ser testado quanto a erros enqaunto está sendo executado. Vem em par com a palvras catch;
 catch: permite definir um bloco de código a ser executado caso ocorra um erro no bloco try.
 finally: permite definir um bloco de código a ser executado independente de ocorrer um erro ou não. 
+
+Java dispõe de uma variedade de classes que representam exceções. Elas são organizadas em hierarquia e são divididas em 2 grupos:
+Checked Exceptios e Unchecked Exceptios;
+
+EXCEÇÕES PERSONALIZADAS: podemos criar nossas próprias exceções baseadas em regras de negócio e direcionar melhor quem for utilizar os recursos desenvolvidos no projeto.
