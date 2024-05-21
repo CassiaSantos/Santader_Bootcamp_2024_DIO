@@ -1,10 +1,12 @@
-public class FormatadorDeCEP {
+public class FormatadorDeCEP extends CepInvalidoException {
     public static void main(String[] args) {
         try {
             String cepFormatado = formatarCep("68022160");
             System.out.println(cepFormatado);
         } catch (CepInvalidoException e) {
             e.printStackTrace();
+            System.out.println("Você inseriu um CEP inválido!");
+
         }
 
     }
