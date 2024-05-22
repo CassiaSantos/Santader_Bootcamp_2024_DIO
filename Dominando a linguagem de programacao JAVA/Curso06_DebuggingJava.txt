@@ -1,0 +1,17 @@
+INTRODUÇÃO:
+
+Erros de programação são denominados Bugs. 
+O processo de encontrar e corrigir bugs é denominado depuração ou debugging. 
+De forma geral, a depuração é dificil e trabalhosa. O IDE utilizada também tem impacto na complexidade e ajuda.
+
+CATEGORIAS DA NATUREZA DO ERRO:
+* Erros de Sintaxe: erro estabelecido nas regras da linguagem
+- parênteses, colchetes, aspas que abrem e não fecham;
+- ponto e vírgula que falta entre 2 instruções;
+- palavra chave sendo usanda em posição inesperada.
+
+* Erros de semântica: erro na "Lógica do código". Em sua semântica, o código está sintaticamente correto porém não faz o que se espera.
+- tentar dividir um número por uma string ou zero.
+- atribuir um valor incoerente a um tipo de dados;
+- fechar um arquivo que não foi aberto.
+
