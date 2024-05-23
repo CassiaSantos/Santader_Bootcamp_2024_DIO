@@ -15,3 +15,7 @@ CATEGORIAS DA NATUREZA DO ERRO:
 - atribuir um valor incoerente a um tipo de dados;
 - fechar um arquivo que não foi aberto.
 
+PILHA DE EXECUÇÃO:
+Pilha de execução: toda invocação de método é empilhada em uma estrutura de dados que isola a área de memória de cada um. Quando um método termina (retorna), ele volta para o método que o invocou.
+
+Stack trace: É a matriz onde encontramos a pilha de execução. Em outras palavras, podemos dizer que o rastreamento da pilha busca (rastreio) para a próxima linha onde a execução pode surgir.
