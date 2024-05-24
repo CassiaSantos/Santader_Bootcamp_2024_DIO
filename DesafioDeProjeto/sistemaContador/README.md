@@ -1,5 +1,9 @@
 # Desafio "Sistema Contador"
 
+#### Autores
+* [Cássia Santos](https://github.com/CassiaSantos)
+* [Gleyson Sampaio](https://github.com/glysns)
+
 ### Descrição:
 <p>Esse desafio de projeto, visa explorar alguns cenários com fluxos condicionais, repetições e excepcionais aprendidas no curso de 'Dominando a Linguagem Java' do Bootcamp Java back-end. Uma parceria da DIO com o Santader.</p>
 
