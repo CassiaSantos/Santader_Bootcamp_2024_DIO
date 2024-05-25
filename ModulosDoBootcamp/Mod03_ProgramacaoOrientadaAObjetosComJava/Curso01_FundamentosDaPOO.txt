@@ -1,0 +1,18 @@
+PROGRAMAÇÃO ORIENTADA A OBJETOS:
+É um paradigma baseado no conceito de "objetos" que podem conter dados na forma de campos, também conhecidos como atributos, e códigos na forma de procedimentos, também conhecidos como métodos.
+
+CLASSES: 
+é a estruturação de um objeto. Define seu identificador, caracaterícas e ações. 
+Toda classe JAVA possui extensão .java (código fonte) --> compilação --> arquivo .class (código que a máquina irá interpretar através da JVM)
+- classe (class): estrutura ou representação que direciona a criação de objetos de mesmo tipo.
+- identificador (identity): Propósito existencial aos objetos que serão criados.
+- caracaterícas (states): também conhecidos como atributos ou propriedades. É toda informação que representa o estado do objeto.
+- comportamentos (behavior): também conhecido como ações ou métodos. É a parte comportamental que um objeto dispõe.
+- instância (new): é o ato de criar um objeto a partir de uma estrutura definida em uma classe.
+
+CLASSES SÃO DEFINIDAS COMO:
+- Classe de modelo (model): representam a estrutura de domínio da application. Exemple: Cliente, Pedido, NotaFiscal, etc.
+- Classe de serviço: (service): contém regras de negócio e validação do sistema;
+- Classes de repositório (repository): contém integração com banco de dados;
+- Classes de controle(controller): possuem a finalidade de disponibilizar alguma comunicação externa à aplicação. Exemple: HTTP web ou webservices.
+- Classe utilitária(util): contém recursos comuns à toda a aplicação.
