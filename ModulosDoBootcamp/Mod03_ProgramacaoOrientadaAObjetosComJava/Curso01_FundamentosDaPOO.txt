@@ -1,7 +1,8 @@
 PROGRAMAÇÃO ORIENTADA A OBJETOS:
 É um paradigma baseado no conceito de "objetos" que podem conter dados na forma de campos, também conhecidos como atributos, e códigos na forma de procedimentos, também conhecidos como métodos.
 
-CLASSES: 
+------------------------------------------------ CLASSES ------------------------------------------------
+CONCEITOS: 
 é a estruturação de um objeto. Define seu identificador, caracaterícas e ações. 
 Toda classe JAVA possui extensão .java (código fonte) --> compilação --> arquivo .class (código que a máquina irá interpretar através da JVM)
 - classe (class): estrutura ou representação que direciona a criação de objetos de mesmo tipo.
@@ -16,3 +17,42 @@ CLASSES SÃO DEFINIDAS COMO:
 - Classes de repositório (repository): contém integração com banco de dados;
 - Classes de controle(controller): possuem a finalidade de disponibilizar alguma comunicação externa à aplicação. Exemple: HTTP web ou webservices.
 - Classe utilitária(util): contém recursos comuns à toda a aplicação.
+
+------------------------------------------------ PACOTES ------------------------------------------------
+PACOTES:
+São subdiretórios a partir da pasta src do projeto onde estão localizadas as classes da linguagem e novas que forem criadas para o projeto. 
+
+CONVENÇÕES NA NOMECLATURA DE PACOTES: 
+- Comercial: com.nomeempresa.nomediretorio
+- Governamental: gov.nomeempresa.nomediretorio
+- Código aberto: org.nomeempresa.nomediretorio
+(Esse padrão de nomeclatura deve ser aplicado em cada pacote criado)
+
+ORGANIZANDO AINDA MAIS...
+- model : Classes que representam a camada e modelo da aplicação : Cliente, Pedido, NotaFiscal, Usuario;
+- repository: Classes ou interfaces que possuem a finalidade de interagir com tabelas no banco de dados: ClienteRepository;
+- service: Classes que contém regras de negócio do sistema : ClienteService possui o método validar o CPF, do cliente cadastrado;
+- controller: Classes que possuem a finalidade de, disponibilizar os nossos recursos da aplicação, para outras aplicações via padrão HTTP;
+- view: Classes que possuem alguma interação, com a interface gráfica acessada pelo usuário;
+- util: Pacote que contém, classes utilitárias do sistema: FormatadorNumeroUtil, ValidadorUtil.
+
+INDENTIFICAÇÃO:
+Quando uma classe é organizada por pacotes, ela passa a ter duas identificações:
+- O nome próprio nome e o nome qualificado (endereçamento do pacote + nome), 
+- exemplo: Considere a classe Usuario(nome próprio), que está endereçada no pacote com.controle.acesso.model, o nome qualificado desta classe é com.controle.acesso.model.Usuario.
+
+PACKAGE versus IMPORT
+A localização de uma classe é definida pela palavra reservada package, logo, uma classe só contém, uma definição de package no arquivo, sempre na primeira linha do código.
+Para a utilização de uma classe existente em outros pacotes, necessitamos realizar a importação das mesmas:
+
+package
+import ... 
+import ...
+
+public class MinhaClasse {
+    //codificação
+}
+
+MODIFICADORES DE RECURSOS ou MODIFICADORES DE ACESSO:
+Em Java, há três palavras reservadas e um conceito default (sem nehuma palavra reservada) para definir os quatro tipo de visibilidade de atributos, métodos e até mesmo classes, no que se refere ao acesso por outras classes. 
+MODIFICADOR PUBLIC: quando a classe, método e atributo é definido como public, qualquer outra classe em qualquer outro pacote, poderá visualizar tais recursos.
