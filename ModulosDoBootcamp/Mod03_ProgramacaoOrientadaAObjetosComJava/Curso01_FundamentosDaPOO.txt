@@ -53,6 +53,77 @@ public class MinhaClasse {
     //codificação
 }
 
-MODIFICADORES DE RECURSOS ou MODIFICADORES DE ACESSO:
+------------------------------------------------ MODIFICADORES DE RECURSOS ou MODIFICADORES DE ACESSO: ------------------------------------------------
 Em Java, há três palavras reservadas e um conceito default (sem nehuma palavra reservada) para definir os quatro tipo de visibilidade de atributos, métodos e até mesmo classes, no que se refere ao acesso por outras classes. 
 MODIFICADOR PUBLIC: quando a classe, método e atributo é definido como public, qualquer outra classe em qualquer outro pacote, poderá visualizar tais recursos.
+MODIFICADOR DEFAULT: está fortemente associado a organização das classes por pacotes, algumas implementações, não precisam estar disponíveis por todo o projeto, e este modificador de acesso, restringe a visibilidade por pacotes.
+    - Para definir um método visível a nível de pacote, basta NÃO declarar modificador;
+MODIFICADOR PRIVATE: os métodos e atributos são vistos somente pela classe a que pertencem.
+
+------------------------------------------------ GETTERS e SETTERS ------------------------------------------------
+Seguindo a convenção Java Beans, os métodos "Getters" e "Setters" são utilizados para buscar ou definir novos valores de atributos, de instâncias de classes.
+GETTER: retorna o valor do atributo especificado.
+SETTER: define outro novo valor para o atributo especificado.
+- Ambos são public.
+- Gerar no Eclipse: botão direito do mouse > source > generate getters and setters > seleciona atributos;
+
+------------------------------------------------ CONSTRUTORES ------------------------------------------------
+Para criar um objeto na linguagem Java, utilizamos a seguinte estrutura de código: Classe novoObjeto = new Classe();
+Desta forma, será criado um novo objeto na memória, este recurso também é conhecido como instanciar um novo objeto.
+Em um construtor, deve ser solicitdo somente as informações relevantes para a criação do objeto. Informações que podem ser definidas depois podem ser adicionadas através dos métodos set.
+Pode ser criado mais de um método construtor por classe.
+Exemple: public Pessoa (String cpf, String nome) {
+		this.cpf = cpf;
+		this.nome = nome;
+	}
+	
+------------------------------------------------ ENUM ------------------------------------------------
+Enum, é um tipo especial de classe, onde os objetos são previamente criados, imutáveis e disponíveis por toda aplicação.
+Usamos Enum, quando o nosso modelo de negócio contém objetos de mesmo contexto, que já existem de forma pré-estabelecida com a certeza de não haver tanta alteração de valores.
+Exemplos:
+Grau de Escolaridade: Analfabeto, Fundamental, Médio, Superior;
+Estado Civil: Solteiro, Casado, Divorciado, Viúvo;
+Estados Brasileiros: São Paulo, Rio de Janeiro, Piauí, Maranhão.
+
+Uma lista de constantes != enum;
+Enquanto que uma constante é uma variável de tipo com valor imutável, enum é um conjunto de objetos já pre-definidos na aplicação.
+Enum é um conjunto de objetos, logo, estes objetos podem conter atributos e métodos. 
+Veja o exemplo de um enum, para disponibilizar os quatro estados brasileiros citados acima, contendo informações de: 
+Nome, Sigla e um método que pega o nome do de cada estado e já retorna para todo maiúsculo.
+
+------------------------------------------------ UML ------------------------------------------------
+UML - linguagem de modelagem unificada (unified modeling linguage);
+Na UML, há três conceitos necessários para compreender inicialmente: Diagramas, elementos e relacionamentos.
+
+As notações UML, são distribuídas em duas categorias de diagramas, a estrutural e comportamental:
+
+DIAGRAMAS ESTRUTURAIS:
+- Diagrama de classe: O Diagrama de Classes é utilizado para fazer a representação de, estruturas de classes de negócio, interfaces e outros componentes do sistema. Por esta característica, este diagrama é considerado o mais importante para a UML, pois auxilia a maioria dos demais diagramas.
+- Diagrama de objetos: Este diagrama, representa os objetos existentes em um determinado instante ou fato na aplicação. Assim, conseguimos ter uma perspectiva do estado de nossos objetos, mediante a interação dos usuários no sistema.
+
+DIAGRAMA DE CLASSE:
+O diagrama de classes, ilustra graficamente como classes serão estruturadas e interligadas entre si diante da proposta do software. A estrutura daS classes é constituída por:
+- Identificação: Nome e/ou finalidade da classe;
+- Atributos: Propriedades e/ou características;
+- Operações: Ações e/ou métodos.
+
+RELACIONAMENTOS:
+Em um diagrama, as classes podem existir de forma independente, mas obviamente haverá, em alguma etapa da aplicação a necessidade de algumas se relacionarem, o que devemos compreender é, o nível de dependência entre elas:
+- Associação: define um relacionamento entre duas classes, permitindo que, um objeto tenha acesso a estrutura de um outro objeto.
+- Agregação: a classe principal contém uma relação com outra classe, mas ela pode existir, sem a classe agregadora. Imagina um cadastro de Candidatos, podemos encontrar candidatos que ainda não possuam uma profissão:
+- Composição: caracteriza uma dependência existencial, entre a classe principal e a classe associada.
+
+
+Multiplicidade
+Nem sempre o relacionamento entre as classes, será de um para um, em um determinado cenário poderá exigir multiplicidades específicas:
+1. -> Representa uma associação, contendo um elemento;
+*. -> Representa uma associação, contendo uma lista de elementos;
+0..1 -> Representa uma associação, contendo zero ou um elemento;
+0..* -> Representa uma associação, contendo zero ou uma lista de elementos;
+1..* -> Representa uma associação. contendo um ou uma lista de elementos.
+
+Visibilidade
+Os atributos e métodos de uma classe, podem receber níveis de visibilidade, e na UML existem símbolos que representam cada um deles.
+(+) Visibilidade pública;
+(#) Visibilidade protegida (muito associada com herança);
+(-) Visibilidade privada.
