@@ -20,3 +20,4 @@ Polimorfismo: São as inúmeras maneiras de se realizar uma mesma ação;
 - Exemplo: Veículo determina duas ações como acelerar e frear, primeiramente, precisamos identificar se estaremos nos referindo a Carro ou Motocicleta, para determinar a lógica de aceleração e frenagem dos respectivos veículos.
 
 -------------------------------------------------- Interface --------------------------------------------------
+Usada quando há a necessidade de uma classe ter Características de outras classes, pois o Java não permite herança múltipla. As classes mais genéricas serão interfaces.
