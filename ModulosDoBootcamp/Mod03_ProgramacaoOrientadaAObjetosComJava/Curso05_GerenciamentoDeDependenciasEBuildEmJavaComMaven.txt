@@ -1,0 +1,222 @@
+=========================================================================
+O que é o Maven?
+- Ferramenta para gerenciar build e dependências de um projeto;
+- Primeira versão em julho de 2004, mantido pela Apache Software Foundation;
+- Endereça como o software foi construído e suas dependências através do POM(Project Object Model);
+- Facilita a compreensão do desenvolvedor
+- Fornecer informações de qualidade
+
+
+=========================================================================
+Síntese da instalção do Maven no windows:
+https://dicasdeprogramacao.com.br/como-instalar-o-maven-no-windows/
+
+
+=========================================================================
+Comandos que auxiliam o dia a dia: 
+1. Compilar: compile
+2. Testar: test
+3. Empacotar: package
+4. Limpar diretório de trabalho: clean
+
+
+=========================================================================
+Comando para criar um projeto:
+Na pasta do projeto pela linha de comando, digitar: mvn archetype:generate -DgroupId=one.digitalinnovation -DartifactId=quick-start-maven -Darchetype=maven-archetype-quickstart -Dinteractive Mode=false
+
+
+=========================================================================
+Encontrar diferentes tipos de arquétipos Maven:
+pesquisar por "maven archetype list" no browser;
+
+
+=========================================================================
+POM, Dependências e Repositórios:
+
+Entendendo o POM
+POM – Project Object Model
+Unidade fundamental de trabalho
+Formato XML
+Detalha o projeto
+Detalha como construir o projeto
+Maven sempre procura pelo pom.xml para realizar sua execução
+
+Mais detalhes pom.xml
+Nome do projeto
+Dependências
+Módulos
+Configurações de build
+Detalhes do projeto (nome, descrição, licença, url)
+Configurações de ambiente (repositórios, tracking, profiles)
+
+Pom.xml básico:
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0-SNAPSHOT</version>
+</project>
+
+- o pom do projeto herda informações do super POM
+
+==================================================================
+Repositórios
+São locais onde podemos encontrar plugins e bibliotecas que o Maven provê
+Dois tipos: Local e Remoto
+
+Repositório Remoto:
+É o local central utilizado pelo Maven para buscar os artefatos.
+Configurado automaticamente pelo Super POM para utilizar o Maven Central
+
+Configuração:
+Via settings.xml
+Localização: pasta_apache_maven/conf/settings.xml
+
+
+Repositório local:
+É o repositório na máquina utilizado pelo Maven para buscar os artefatos.
+Estratégia de caching
+Localizações	
+Windows: %USERPROFILE%\.m2\repository
+Linux: $HOME/.m2/repository
+
+==========================================================================
+Propriedades
+groupId: É como se fosse o id da organização. Segue as regras de nomes de pacote Java
+artifactId: Nome do projeto em si
+Version: Número da versão que será utilizada
+
+Ler:
+https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7
+https://maven.apache.org/guides/mini/guide-naming-conventions.html
+https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
+https://mvnrepository.com/
+
+=================================================================================
+Tipos de dependências no Maven:
+Direta: dependências declaradas no pom.xml
+Transitiva: dependências obrigatórias das dependências declaradas no pom.xml
+
+
+==================================================================================
+Transitividade e Escopos
+Para lidar com o problema de dependências transitivas, o Maven provê escopos para limitar a transitividade das dependências. Existem 6 tipos de escopos que podemos utilizar.
+
+************ Classpath: referencia de execução que a aplicação possui no momento em que está executando:
+Runtime:
+Indica que a dependência é necessária para execução e não para compilação
+Maven inclui no classpath dos escopos de runtime e test
+
+Test:
+Disponível somente para compilação e execução de testes
+Não é transitivo
+
+Compile:
+escopo default. Não precisa ser informado;
+Tem dependência trasiytiva e está em todos os classpaths;
+
+Provided:
+Indica que a dependência será fornecida em tempo de execução por uma implementação na JDK ou via container
+Exemplos: Servlet API, Java EE APIs
+A dependência com esse escopo é adicionado no classpath usado para compilação(compile) e teste(test) mas não em runtime;
+Não é transitiva
+
+System:
+Similar ao escopo provided exceto por ser necessário prover o JAR explicitamente(indicar local exato do .jar)
+A dependência com esse escopo é adicionado no classpath usado para compilação(compile) e teste(test) mas não em runtime;
+Não é transitiva
+
+Import:
+Este escopo é disponível apenas com uma dependência do tipo pom e com tag <dependencyManagement>
+Indica um processo de reutilizar dependências de um projeto
+
+Para ver o classpath:
+mvn dependency:build-classpath –DincludeScope=compile
+mvn dependency:build-classpath –DincludeScope=test
+mvn dependency:build-classpath –DincludeScope=runtime
+
+Dependências Opcionais
+Utilizado quando uma dependência não é necessária(ou não deve ser acessível) para os projetos que irão reutilizar seu componente
+Indicado pela tag: <optional>true</optional> dentro de <dependency></dependency>
+
+
+==========================
+Maven Build Lifecycle
+O que é:
+Conceito de ciclo de vida de construção
+Conceito e os comandos da ferramenta
+Composto por 3 ciclos de vida
+Cada ciclo possui fases (Maven Phases)
+Cada fase possui objetivos (Maven Goals)
+
+Lifecycle:
+**************** Default ****************
+Principal ciclo
+Responsável pelo deploy local
+Composto por 23 fases (comandos):
+- validate
+- compile
+- test-compile
+- test
+- integration-test
+- package
+- install
+- deploy
+
+**************** Clean ****************
+Ciclo intermediário
+Responsável pela limpeza do projeto
+Composto por 3 fases:
+- pre-clean
+- clean
+- post-clean
+
+**************** Site ****************
+Ciclo final
+Responsável pela criação do site de documentação do projeto
+Composto por 4 fases: 
+- pre-site
+- site
+- post-site
+- site-deploy
+
+
+====================================================================
+Projetos multi-modulos:
+criar um diretório e nele executar os seguintes comandos:
+mvn archetype:generate -DgroupId=one.digital.innovation -DartifactId=project-parent -Darchetype=maven-quick-start
+<packaging>pom</packaging>
+entrar na psta gerada acima
+mvn archetype:generate -DgroupId=one.digital.innovation -DartifactId=core -Darchetype=maven-quick-start -DinteractiveMode=false
+mvn archetype:generate -DgroupId=one.digital.innovation -DartifactId=service -Darchetype=maven-quick-start -DinteractiveMode=false
+mvn archetype:generate -DgroupId=one.digital.innovation -DartifactId=controller -Darchetype=maven-quick-start -DinteractiveMode=false
+
+
+===============================================================
+Plugins
+O que são os plugins?
+A maioria das funcionalidades são providas por plugins
+Estilo arquitetural para extensibilidade (criar seu próprio plugin)
+Escrito prioritariamente em Java e disponibilizados comumente como JARs
+
+Plugins mais utilizados
+eclipse
+jacoco
+ear
+war
+compile
+clean
+checkstyle
+javadoc
+
+Uso:
+mvn [plugin-name]:[goal-name]
+mvn no,e:tarefa
+
+Ler:
+https://maven.apache.org/plugins/
+https://maven.apache.org/guides/introduction/introduction-to-plugins.html
+
+Conclusão:
+https://maven.apache.org/guides/
+Apache Maven 3 Cookbook, Srirangan, 2011, Packt Publishing
