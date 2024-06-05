@@ -1,0 +1,77 @@
+TESTE DE SOFTWARE:
+
+Definição: “Testes de software é o processo de execução de um produto para determinar se ele atingiu suas especificações e funcionou corretamente no ambiente para o qual foi projetado” (Dias Neto)
+
+DEFEITO, ERRO E FALHA:
+Defeito: erro no nível de programação e lógica.
+
+Erro: está por tras de uma falha. É a falha humana perante um sistema. Passou despercebido ou por falta de testes. 
+
+Falha: cenário inesperado que um usuário acaba tendo contato; Tudo que é visível para o usuário --> tela azul do windows, servidor caiu, etc.
+
+VERIFICAÇÃO E VALIDAÇÃO:
+Verificação: Estamos construindo o sistema certo? do ponto de vista da documentação e requisitos do software.
+Validação: Estamos construindo o software certo? Do ponto de vista de solução do problema e expectativa do usuário.
+
+NÍVEIS DE TESTE:
+Unidade --> Integração --> Sistema --> Regressão --> Aceitação
+
+Unidade (teste unitário): testa métodos, funções --> pedaços de código;
+Integração: testar comportamento do código com API, banco de dados, etc.
+Sistema: um versão minimante usável do sistema é implementada em ambiente de teste/app/site/plataforma para usuários/testadores;
+Regressão: etapa de avaliar tudo que foi desenvolvido até o momento.
+Validação: etapa em que o projeto é entregue e aceita.
+
+TESTES ALPHA, BETA E CANNARY:
+Alpha: teste realizado em ambiente de produção (geralmente) por um grupo seleto de pessoas. Geralmente pessoas que fazem parte do desenvolvimento da solução. É o teste mais inicial.
+Beta: é um teste mais maduro que o alpha em que o software é disponibilizado para um grupo maior de usuários(ex: cliente espcífico);
+Cannary: uma nova versão do sistema é disponibilizada a uma parte dos usuários para que ela seja testada e verificada. Se validada, é disponibilizada para os demais usuários.
+
+TÉCNICAS DE TESTE:
+Caixa branca: 
+- Também conhecido como Teste Estrutural;
+- Validar dados, controles, fluxos, chamadas;
+- Garantir a qualidade da implementação;
+- Níveis: Unidade, Integração, Regressão.
+
+Caixa preta:
+- Teste funcional;
+- Verificar saídas usando vários tipos de entrada;
+- Teste sem conhecer a estrutura interna do software;
+- Níveis: Integração, Sistema, Aceitação.
+
+Caixa cinza:
+- Mescla técnicas de Caixa branca e Caixa Preta;
+- Analisa parte lógica e também funcionalidade;
+- Exemplo: Ter acesso a documentação do funcionamento do código;
+- Engenharia Reversa.
+
+TESTES NÃO FUNCIONAIS:
+- São testes que tem como objetivo testar aspectos do software que não são associados as regras de negócio mas sim a requisitos não funcionais.:
+    - Comportamento do Sistema
+    - Performance
+    - Escalabilidade
+    - Segurança
+    - Infraestrutura
+
+Exemplo: “Qual Plataforma o Sistema deverá rodar ?”
+
+Teste de carga:
+“O teste de carga é realizado para verificar qual o volume de transações, acessos simultâneos ou usuários que um servidor/software/sistema suporta.” Alguns pontos de atenção:
+- Objetivos para clareza de resultados
+- Ambiente
+- Cenários
+- Execução de testes
+- Análise de resultado
+
+Testes de stress:
+“Teste de stress é realizado para submeter o software a situações extremas. Basicamente, o teste de stress baseia-se em testar os limites do software e avaliar seu comportamento. Assim, avalia-se até quando o software pode ser exigido e quais as falhas (se existirem) decorrentes do teste.”
+
+Testes de segurança:
+“O teste de segurança é um processo crítico de segurança cibernética que visa detectar vulnerabilidades em sistemas, software, redes e aplicativo”
+
+PIRÂMIDE DE TESTE:
+Os vários níveis e formas de realizar teste de software;
+topo: UI test
+meio: service test
+base: unit test
