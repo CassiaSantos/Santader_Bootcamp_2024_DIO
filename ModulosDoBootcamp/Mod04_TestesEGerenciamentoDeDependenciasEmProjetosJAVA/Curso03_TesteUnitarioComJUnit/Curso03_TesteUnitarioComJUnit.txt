@@ -1,0 +1,8 @@
+Métodos de testes no Junit são void;
+
+Teste:
+@Test
+void nomeDoMetodo(){
+	Classe novaInstancia = new Classe(atri1, atri2, atri3);
+	Assertions.assertEquals(valor esperado, novaInstancia.chamadaDoMetodo());
+}

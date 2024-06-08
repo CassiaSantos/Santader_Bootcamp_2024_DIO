@@ -1,0 +1,29 @@
+Métodos de testes no Junit são void;
+
+Estrutura de um Teste:
+@Test
+void nomeDoMetodoIdenticandoFuncaoERetornoEsperado(){
+	Classe novaInstancia = new Classe(atri1, atri2, atri3);
+	Assertions.assertEquals(valor esperado, novaInstancia.chamadaDoMetodo());
+}
+
+//Para método de retorno booleano:
+Assertions.assertTrue(novaInstancia.chamadaDoMetodo());
+Assertions.assertFalse(novaInstancia.chamadaDoMetodo());
+
+//Valida se dado é nulo ou não:
+Assertions.assertNull();
+Assertions.assertNotNull();
+
+//Valida se valores de um array são igual ou não:
+Assertions.assertArrayEquals(array1, array2);
+Assertions.assertArrayNotEquals(array1, array2);
+
+afterEach e beforeEach são executados a cada teste.
+afterAll e beforeAll são executados somente no iníco e término de todos os testes;
+
+Assumptions e Testes condicionais:
+https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupiter/api/Assumptions.html
+https://www.baeldung.com/junit-5#2-assumptions
+https://mkyong.com/junit5/junit-5-assumptions-examples/
+https://junit.org/junit5/docs/current/user-guide/#writing-tests-conditional-execution
