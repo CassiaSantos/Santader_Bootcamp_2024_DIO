@@ -1,3 +1,9 @@
+Introdução:
+https://junit.org/junit5/
+https://github.com/junit-team/junit5/
+https://www.baeldung.com/junit-5-gradle
+https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html
+
 Métodos de testes no Junit são void;
 
 Estrutura de um Teste:
@@ -27,3 +33,12 @@ https://junit.org/junit5/docs/current/api/org.junit.jupiter.api/org/junit/jupite
 https://www.baeldung.com/junit-5#2-assumptions
 https://mkyong.com/junit5/junit-5-assumptions-examples/
 https://junit.org/junit5/docs/current/user-guide/#writing-tests-conditional-execution
+
+Executando testes no VS Code:
+https://code.visualstudio.com/docs/java/java-testing
+
+Executando testes no VS Code:
+https://code.visualstudio.com/docs/java/java-testing
+
+Executando testes no VS Code:
+https://code.visualstudio.com/docs/java/java-testing

@@ -1,0 +1,8 @@
+Depenências do Mokito necessários no pom.xml do Maven:
+mockito-junit-jupiter: https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
+mockito-core: https://mvnrepository.com/artifact/org.mockito/mockito-core
+
+Para que serve o Mokito? 
+Para auxiliar na escrita de testes unitários.
+
+
