@@ -47,13 +47,6 @@ Exemplos de Aplicações de Bancos de Dados e SGBDs:
 * Hospitais: armazenam prontuários médicos, exames, histórico de pacientes e medicamentos.
 * Governos: registram informações de cidadãos, impostos, benefícios e serviços públicos.
 
-<<<<<<< HEAD
-Conclusão:
-A combinação de um banco de dados bem estruturado e um SGBD eficiente é fundamental para qualquer organização que lida com grandes volumes de informações.
-Dominar esses conceitos é essencial para profissionais de diversas áreas, como desenvolvedores, analistas de dados, administradores de sistemas e tomadores de decisão.
-
-Lembre-se: investir em um bom banco de dados e SGBD significa ganhar em organização, segurança, eficiência e competitividade no mercado.
-=======
 Lembre-se: investir em um bom banco de dados e SGBD significa ganhar em organização, segurança, eficiência e competitividade no mercado.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -64,4 +57,3 @@ TABELAS COLUNAS E REGISTROS:
 - DEFAULT 
 * Chaves primárias e estrangeiras
 * Auto-incremento
->>>>>>> aecfc1e178cb802e9c567814d47a50fa8d4170d5
