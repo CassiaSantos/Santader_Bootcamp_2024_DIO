@@ -49,11 +49,81 @@ Exemplos de Aplicações de Bancos de Dados e SGBDs:
 
 Lembre-se: investir em um bom banco de dados e SGBD significa ganhar em organização, segurança, eficiência e competitividade no mercado.
 
------------------------------------------------------------------------------------------------------------------------------------------
-TABELAS COLUNAS E REGISTROS:
+---------------------------------------------------------- SGBD -------------------------------------------------------------------------------
+Funcionalidades básicas de um SGBD: 
+Creat
+Read 
+Update 
+Delete
+
+Características de um SGBD:
+Relacionamento entre tabelas
+* Linguagem de Consulta Estruturada (SQL)
+* Integridade referencial
+* Normalização de dados
+* Segurança
+* Flexibilidade e extensibilidade
+* Suporte a transações ACID
+
+ACID:
+Atomicidade 
+Consistência 
+Isolamento 
+Durabilidade
+
+TABELAS, COLUNAS E REGISTROS:
+* Tabelas: Ela é usada para armazenar dados de forma organizada. Cada tabela em um banco de dados relacional tem um nome único e é dividida em colunas e linhas
+* Colunas: Uma coluna é uma estrutura dentro de uma tabela que representa um atributo específico dos dados armazenados. Cada coluna tem um nome único e um tipo de  dados associado que define o tipo de informação que pode ser armazenado nela, como números, textos, datas, etc.
+* Registros: Um registro, também conhecido como linha ou tupla, é uma instância individual de dados em uma tabela.
+
+Comando CREAT TABLE:
+* Chaves primárias e estrangeiras
+* Auto-incremento
 * Restrições de valor:
 - NOT NULL
 - UNIQUE (usar para e-mail de login, por exemplo)
 - DEFAULT 
-* Chaves primárias e estrangeiras
-* Auto-incremento
+Exemplo: 
+CREATE TABLE destinos (
+  id INT,
+  nome VARCHAR(255) NOT NULL UNIQUE COMMENT 'Nome do destino',
+  descricao VARCHAR(255) NOT NULL COMMENT 'Descrição do destino'
+);
+
+Comando INSERT INTO:
+INSERT INTO nomeTabela (<coluna1>, <coluna2>, <coluna3>)
+VALUES (<valor1>, <valor2>, <valor3>);
+
+Comando: SELECT com Where
+SELECT {{ lista_colunas}}
+FROM tabela
+WHERE {{condicao}};
+
+Operadores SELECT com WHERE
+* = (igualdade)
+* <> ou != (desigualdade)
+* > (maior que)
+* < (menor que)
+* >= (maior ou igual que)
+* <= (menor ou igual que)
+* LIKE (comparação de padrões)
+* IN (pertence a uma lista de valores)
+* BETWEEN (dentro de um intervalo)
+* AND (e lógico)
+* OR (ou lógico)
+
+Comando UPDATE:
+UPDATE {{ tabela }}
+SET
+{{ coluna_1 }} = {{ novo_valor_1 }},
+{{ coluna_2 }} = {{ novo_valor_2 }}
+WHERE
+{{ condicao }};
+
+Comando DELETE:
+DELETE FROM
+{{ tabela }}
+WHERE
+{{ condicao }};
+
+Alteração e exclusão de tabelas:
