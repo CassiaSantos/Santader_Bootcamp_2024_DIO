@@ -126,66 +126,69 @@ DELETE FROM
 WHERE
 {{ condicao }};
 
-
-CREATE TABLE usuario (
-    id INT PRIMARY KEY,
-    nome VARCHAR(200) NOT NULL COMMENT 'Nome do usuário',
-    email VARCHAR(100) NOT NULL UNIQUE COMMENT 'Em-mail do usuario',
-    data_nascimento DATE NOT NULL COMMENT 'data de nascimento do usuário'
-);
-
-CREATE TABLE viagens.destinos (
-  id INT,
-  nome VARCHAR(255) NOT NULL UNIQUE COMMENT 'Nome do destino',
-  descricao VARCHAR(255) NOT NULL COMMENT 'Descrição do destino'
-);
-
-CREATE TABLE viagens.reservas (
-  id INT COMMENT 'Identificador único da reserva',
-  id_usuario INT COMMENT 'Referência ao ID do usuário que fez a reserva',
-  id_destino INT COMMENT 'Referência ao ID do destino da reserva',
-  data DATE COMMENT 'Data da reserva',
-  status VARCHAR(255) DEFAULT 'pendente' COMMENT 'Status da reserva (confirmada, pendente, cancelada, etc.)'
-);
-
--- INSERÇÃO DE DADOS:
-INSERT INTO viagens.usuarios (id, nome, email, data_nascimento, endereco) VALUES 
-(1, 'João Silva', 'joao@example.com', '1990-05-15', 'Rua A, 123, Cidade X, Estado Y'),
-(2, 'Maria Santos', 'maria@example.com', '1985-08-22', 'Rua B, 456, Cidade Y, Estado Z'),
-(3, 'Pedro Souza', 'pedro@example.com', '1998-02-10', 'Avenida C, 789, Cidade X, Estado Y');
-
-INSERT INTO viagens.destinos (id, nome, descricao) VALUES 
-(1, 'Praia das Tartarugas', 'Uma bela praia com areias brancas e mar cristalino'),
-(2, 'Cachoeira do Vale Verde', 'Uma cachoeira exuberante cercada por natureza'),
-(3, 'Cidade Histórica de Pedra Alta', 'Uma cidade rica em história e arquitetura');
-
-INSERT INTO viagens.reservas (id, id_usuario, id_destino, data, status) VALUES 
-(1, 1, 2, '2023-07-10', 'confirmada'),
-(2, 2, 1, '2023-08-05', 'pendente'),
-(3, 3, 3, '2023-09-20', 'cancelada');
-
--- SELEÇÃO DE DADOS: --
-
--- Selecionar todos os registros da tabela "usuarios"
-SELECT * FROM usuarios;
-
--- Selecionar apenas o nome e o email dos usuários
-SELECT nome, email FROM usuarios;
-
--- Selecionar os usuários que possuem o nome "João Silva"
-SELECT * FROM usuarios WHERE nome = 'João Silva';
-
--- Selecionar os usuários que nasceram antes de uma determinada data
-SELECT * FROM usuarios WHERE data_nascimento < '1990-01-01';
-
--- Like
-SELECT * FROM usuarios WHERE nome LIKE '%Silva%';
-SELECT * FROM usuarios WHERE nome LIKE 'Jo_o%';
-
--- ATUALIZAÇÃO DE DADOS --
-UPDATE usuarios SET endereco = 'Nova Rua, 123' WHERE email = 'joao@example.com';
-
--- DELEÇÃO DE DADOS --
-DELETE FROM reservas WHERE status = 'cancelada';
-
 Alteração e exclusão de tabelas:
+* cria tabela;
+* migra dados: com "INSERT INTO <novaTabela> SELECT * from <tabelaAntiga>;
+* Exclui tabela anterior com "DROP table <tabelaAntiga>;"
+* Renomea nova tabela com: "ALTER TABLE <novaTabela> RENAME <nomeTabelaAntiga>;"
+Ou opção 2: Altera coluna específica com "ALTER TABLE <nomeTabela> MODIFY COLUMN <nomeColunaASerModificada> VARCHAR(100);"
+
+Drop Table:
+usado no SQL - para remover uma tabela existente de um banco de dados relacional. Ele exclui permanentemente a tabela
+DROP TABLE {{tabela}}
+
+Alter Table: 
+A cláusula ALTER TABLE é usada no SQL para modificar a estrutura de uma tabela existente em um banco de dados 
+relacional. Ela permite:
+* Adicionar, alterar ou excluir colunas
+* Modificar as restrições, índices
+* Renomear a tabela entre outras alterações
+
+Chaves Primárias:
+* Identifica exclusivamente
+* Não pode conter valores nulos (NULL) 
+* Uma tabela pode ter apenas uma chave primária.
+CREATE TABLE {{tabela}}
+( ID PRIMARY KEY AUTOINCREMENT,
+… );
+ALTER TABLE {{tabela}}
+MODIFY COLUMN ID INT PRIMARY KEY;
+
+Chaves estrangeiras:
+Ela é usada para estabelecer e manter a integridade dos dados entre tabelas relacionadas
+* Pode ser nula (NOT NULL); ** registro órfão
+* É possível ter mais de uma (ou nenhuma) em uma tabela.
+CREATE TABLE {{tabela }} (
+id INT PRIMARY KEY,
+chave_estrangeira INT,
+FOREIGN KEY (chave_estrangeira) REFERENCES {{outra 
+tabela }} (id)
+);
+Definição de Chave estrangeira após criação da tabela:
+ALTER TABLE {{ tabela }}
+ADD CONSTRAINT {{nome_constraint }} 
+FOREIGN KEY (ID_) 
+REFERENCES {{outra_tabela}} (ID)
+
+Restrições de Chaves estrangeiras:
+* ON DELETE especifica o que acontece com os registros dependentes quando um registro pai é excluído.
+* ON UPDATE define o comportamento dos registros dependentes quando um registro pai é atualizado.
+* CASCADE, SET NULL, SET DEFAULT e RESTRICT
+
+Normalização de Dados:
+É um processo no qual se organiza e estrutura um banco de dados relacional de forma a eliminar redundâncias e anomalias, garantindo a 
+consistência e integridade dos dados. 
+1FN: Atomicidade de dados:
+A 1FN estabelece que cada valor em uma tabela deve ser atômico, ou seja, indivisível. Nenhum campo deve conter 
+múltiplos valores ou listas. No seu caso, o campo "endereco" contém múltiplos valores, como rua, número, 
+cidade e estado. Para atingir a 1FN, precisamos dividir o campo "endereco" em colunas separadas.
+
+2FN: estabelece que uma tabela deve estar na 1FN.
+Todos os atributos não chave devem depender totalmente da chave primária. 
+Dica se sua tabela tem uma chave primária simples não existe a possibilidade de termos dependência parcial e por tanto ela 
+já se encontra na 2FN
+
+3FN: Uma tabela deve estar na 2FN .
+Nenhuma coluna não-chave depender de outra coluna não-chave;
+
+Consultas Avançadas: Consultas com junções e subconsultas
