@@ -1,7 +1,7 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class ContaBancario_HerancaePolimorfismo {
+public class ContaBancaria_HerancaePolimorfismo {
 
     public static void main(String[] args) {
         // Lendo os dados de Entrada:
