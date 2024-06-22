@@ -1,0 +1,33 @@
+Tipos de banco de dados Not Only SQL
+Introdução ao MongoDB e Bancos de Dados NoSQL
+Tipos de banco NoSQL
+Coluna/Família de colunas
+Chave-valor
+Documento
+Introdução ao MongoDB
+Instalação
+MongoDB Cloud
+Operações de manipulação de dados
+Performance e índices
+Agregações
+banco de dados é composto por collections e collections são compostas por dosumentos;
+
+------------------------------- COMANDOS MONGO DB-------------------------------
+Criar ou utilizar base de dados:
+use <nomeBaseDados>;
+criar uma collection:
+- ceclaração explícita:
+bd.createCollection(<nomeCollection>, <JSON com informações de configurações>);
+
+- ceclaração implícita:
+
+mostrar collections:
+show collections;
+
+povoar collection: 
+db.<nomeCollection>.insertOne({atributo1: valor, atributo2: valor});
+
+listar todos os documentos da collection:
+db.<nomeCollection>.find({});
+
+Comando insertOne(): insere documento dentro de uma collection e retorna o objectId dele;
