@@ -148,4 +148,5 @@ Spring-boot-starter-*
 * openfeign: Client HTTP baseado em interfaces
 * actuator: Gerenciamento de monitoramento da aplicação. 
 
-
+BEANS: CLASSES EXTERNAS (QUANDO NÃO HÁ ACESSO AO CÓDIGO-FONTE) QUE PRECISARÃO SER GERENCIADAS PELO SPRING;
+COMPONENT: QUANDO É UMA CLASSE QUE TEM A POSSIBILIDADE E OBJETIVO DE SER PROVIDA ATRAVÉS DA INJEÇÃO DE DEPENDÊNCIAS;
