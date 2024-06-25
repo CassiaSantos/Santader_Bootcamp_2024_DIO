@@ -148,6 +148,7 @@ Spring-boot-starter-*
 * openfeign: Client HTTP baseado em interfaces
 * actuator: Gerenciamento de monitoramento da aplicação. 
 
+<<<<<<< HEAD
 ### @Bean e @Component
 No Spring Framework, tanto `@Bean` quanto `@Component` são usados para definir beans que o contêiner do Spring gerenciará, mas eles são usados em contextos diferentes e têm propósitos distintos.
 
@@ -506,3 +507,7 @@ Neste exemplo, se a propriedade `app.name` não estiver definida, `appName` ser�
 ### Conclusão
 
 A anotação `@Value` no Spring Framework é uma ferramenta poderosa para injetar valores de propriedades em seus componentes, promovendo uma configuração flexível e fácil de gerenciar. Ao externalizar a configuração, você pode ajustar os valores sem recompilar o código, facilitando a manutenção e a adaptabilidade da aplicação a diferentes ambientes. Ao compreender e utilizar `@Value`, você pode criar aplicações mais configuráveis e adaptáveis às necessidades específicas do seu projeto.
+=======
+BEANS: CLASSES EXTERNAS (QUANDO NÃO HÁ ACESSO AO CÓDIGO-FONTE) QUE PRECISARÃO SER GERENCIADAS PELO SPRING;
+COMPONENT: QUANDO É UMA CLASSE QUE TEM A POSSIBILIDADE E OBJETIVO DE SER PROVIDA ATRAVÉS DA INJEÇÃO DE DEPENDÊNCIAS;
+>>>>>>> 3060e69293a330e485e87676cdf851fa7b3575aa
