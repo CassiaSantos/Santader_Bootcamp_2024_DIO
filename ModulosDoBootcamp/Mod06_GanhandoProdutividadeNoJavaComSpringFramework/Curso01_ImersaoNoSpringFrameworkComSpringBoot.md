@@ -148,4 +148,361 @@ Spring-boot-starter-*
 * openfeign: Client HTTP baseado em interfaces
 * actuator: Gerenciamento de monitoramento da aplicação. 
 
+### @Bean e @Component
+No Spring Framework, tanto `@Bean` quanto `@Component` são usados para definir beans que o contêiner do Spring gerenciará, mas eles são usados em contextos diferentes e têm propósitos distintos.
 
+### @Bean
+
+A anotação `@Bean` é usada em métodos dentro de uma classe configurada com `@Configuration`. Esses métodos produzem beans que são geridos pelo contêiner Spring. A anotação `@Bean` é adequada para a criação de beans que requerem uma lógica de construção mais complexa ou que não podem ser automaticamente detectados pelo mecanismo de escaneamento de componentes.
+
+**Quando usar `@Bean`:**
+
+1. **Configuração Complexa**: Quando a criação do bean requer lógica adicional ou inicialização complexa que não pode ser realizada através de uma anotação simples em uma classe.
+2. **Integração com Bibliotecas de Terceiros**: Quando você precisa configurar beans de bibliotecas externas que não podem ser anotados diretamente com `@Component`.
+3. **Personalização Detalhada**: Quando você precisa personalizar a instância do bean de uma maneira que não pode ser facilmente alcançada através de anotações ou escaneamento automático.
+
+**Exemplo:**
+
+```java
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/mydb");
+        dataSource.setUsername("user");
+        dataSource.setPassword("password");
+        return dataSource;
+    }
+}
+```
+
+Neste exemplo, a criação e configuração do `DataSource` é complexa e personalizada, portanto, `@Bean` é a escolha adequada.
+
+### @Component
+
+A anotação `@Component` é usada diretamente em classes para marcá-las como beans Spring, permitindo que o contêiner Spring detecte e registre essas classes automaticamente através do escaneamento de componentes. `@Component` é uma anotação de nível de classe e é mais apropriada para classes que são de responsabilidade de um desenvolvedor e podem ser facilmente detectadas pelo Spring.
+
+**Quando usar `@Component`:**
+
+1. **Componentes Simples**: Quando a classe é um componente simples que não requer lógica complexa para sua instância.
+2. **Serviços, Repositórios e Controladores**: É comum usar especializações de `@Component` como `@Service`, `@Repository` e `@Controller` para classificar e identificar o propósito da classe no contexto da aplicação.
+3. **Escaneamento Automático**: Quando você deseja que o Spring encontre e registre automaticamente seus beans através do escaneamento de componentes.
+
+**Exemplo:**
+
+```java
+@Component
+public class MyService {
+
+    public void performService() {
+        // lógica do serviço
+    }
+}
+```
+
+Neste exemplo, `MyService` é um bean simples que pode ser detectado automaticamente pelo Spring.
+
+**Uso de Especializações de `@Component`:**
+
+- `@Service`: Usado para marcar uma classe de serviço.
+- `@Repository`: Usado para marcar uma classe de repositório que interage com a base de dados.
+- `@Controller`: Usado para marcar uma classe de controlador em uma aplicação web.
+
+**Exemplo com Especializações:**
+
+```java
+@Service
+public class UserService {
+    // lógica de serviço para usuários
+}
+
+@Repository
+public class UserRepository {
+    // lógica de acesso a dados para usuários
+}
+
+@Controller
+public class UserController {
+    // lógica do controlador para gerenciar requisições HTTP
+}
+```
+
+### Resumo
+
+- Use `@Bean` quando precisar de controle total sobre a criação e configuração de um bean, especialmente quando trabalhar com bibliotecas externas ou configurações complexas.
+- Use `@Component` (ou suas especializações `@Service`, `@Repository`, `@Controller`) quando sua classe for um componente da aplicação que pode ser facilmente detectado e registrado automaticamente pelo Spring.
+
+### Escopos Singleton e Prototype no Spring Framework
+
+No Spring Framework, o conceito de escopos define o ciclo de vida e a visibilidade dos beans geridos pelo contêiner Spring. Dois dos escopos mais comuns são o `singleton` e o `prototype`. Entender as diferenças entre eles é crucial para projetar uma aplicação eficiente e com comportamento previsível.
+
+#### Escopo Singleton
+
+**Definição:**
+
+O escopo `singleton` é o padrão no Spring Framework. Quando um bean é definido como `singleton`, o contêiner Spring cria uma única instância desse bean e a compartilha em toda a aplicação. Isso significa que, independentemente de quantas vezes o bean seja solicitado, a mesma instância será retornada.
+
+**Características:**
+
+1. **Única Instância**: Apenas uma instância do bean é criada por contêiner Spring.
+2. **Memória Compartilhada**: Todos os pontos da aplicação que dependem desse bean compartilharão a mesma instância.
+3. **Gerenciamento Simplificado**: Facilita o gerenciamento de recursos compartilhados e a configuração centralizada.
+
+**Vantagens:**
+
+- **Eficiência de Recursos**: Economiza memória e tempo de inicialização, já que apenas uma instância é criada.
+- **Consistência de Estado**: Permite a manutenção de um estado consistente através da aplicação, útil para beans que representam serviços ou repositórios.
+
+**Desvantagens:**
+
+- **Estado Compartilhado**: Pode levar a problemas de concorrência e estado compartilhado se não gerenciado corretamente.
+- **Não Adequado para Estado Local**: Não é ideal para beans que precisam manter estados diferentes para cada usuário ou thread.
+
+**Exemplo de Uso:**
+
+```java
+import org.springframework.stereotype.Service;
+
+@Service
+public class MySingletonService {
+    // lógica do serviço
+}
+```
+
+Neste exemplo, `MySingletonService` será gerido como um singleton. Cada vez que ele for solicitado, a mesma instância será retornada.
+
+#### Escopo Prototype
+
+**Definição:**
+
+O escopo `prototype` cria uma nova instância do bean sempre que ele é solicitado. Ao contrário do escopo `singleton`, não há compartilhamento de instâncias entre os pontos da aplicação. Cada solicitação resulta em uma nova instância, proporcionando um comportamento diferente.
+
+**Características:**
+
+1. **Múltiplas Instâncias**: Uma nova instância é criada a cada solicitação.
+2. **Isolamento de Estado**: Cada instância é independente, o que elimina problemas de concorrência e estado compartilhado.
+3. **Uso Dinâmico**: Adequado para beans que necessitam de configuração dinâmica ou estado independente.
+
+**Vantagens:**
+
+- **Isolamento de Estado**: Ideal para componentes que precisam manter estados distintos por solicitação ou thread.
+- **Flexibilidade**: Permite maior flexibilidade na configuração e uso de beans, especialmente quando diferentes instâncias necessitam de diferentes estados.
+
+**Desvantagens:**
+
+- **Consumo de Recursos**: Pode consumir mais memória e tempo de inicialização, já que novas instâncias são constantemente criadas.
+- **Gerenciamento de Ciclo de Vida**: Mais complexo, pois o desenvolvedor precisa gerenciar explicitamente o ciclo de vida e a destruição dos beans.
+
+**Exemplo de Uso:**
+
+```java
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope("prototype")
+public class MyPrototypeBean {
+    // lógica do bean
+}
+```
+
+Neste exemplo, `MyPrototypeBean` será gerido como um prototype. Cada vez que ele for solicitado, uma nova instância será criada.
+
+### Considerações Práticas
+
+Ao escolher entre `singleton` e `prototype`, considere os seguintes aspectos:
+
+- **Necessidade de Estado Compartilhado**: Use `singleton` se os beans precisam compartilhar estado e recursos através da aplicação.
+- **Isolamento e Independência**: Use `prototype` se cada solicitação deve resultar em uma instância independente com seu próprio estado.
+- **Consumo de Recursos**: `singleton` é mais eficiente em termos de recursos, enquanto `prototype` pode resultar em maior consumo de memória e tempo de criação.
+
+### Conclusão
+
+O escopo `singleton` é ideal para beans que representam serviços e repositórios compartilhados, proporcionando eficiência e consistência de estado. O escopo `prototype` é mais adequado para beans que precisam de isolamento de estado e instâncias independentes, oferecendo maior flexibilidade e dinamismo. Ao compreender as diferenças e aplicações desses escopos, você pode tomar decisões informadas para projetar uma arquitetura Spring que seja eficiente, escalável e adequada às necessidades específicas de sua aplicação.
+
+### Uso de `@Value` em Spring para Injeção de Propriedades
+
+No Spring Framework, a anotação `@Value` é usada para injetar valores de propriedades em campos, métodos ou parâmetros de construtor. Isso permite a externalização de configurações, facilitando a gestão e a mudança de valores de configuração sem a necessidade de recompilar o código. Esses valores podem ser extraídos de arquivos de propriedades (`.properties`), arquivos YAML (`.yml`), variáveis de ambiente ou argumentos de linha de comando.
+
+### Como Usar `@Value`
+
+A anotação `@Value` é geralmente usada em combinação com arquivos de propriedades (`application.properties` ou `application.yml`). Aqui está uma explicação detalhada de como usá-la:
+
+#### Injeção de Valores Simples
+
+Você pode injetar valores simples diretamente em campos da classe.
+
+**Exemplo com `application.properties`:**
+
+1. **Definindo Propriedades**:
+    ```properties
+    # application.properties
+    app.name=MinhaAplicacao
+    app.version=1.0.0
+    ```
+
+2. **Injetando Propriedades**:
+    ```java
+    import org.springframework.beans.factory.annotation.Value;
+    import org.springframework.stereotype.Component;
+
+    @Component
+    public class AppConfig {
+
+        @Value("${app.name}")
+        private String appName;
+
+        @Value("${app.version}")
+        private String appVersion;
+
+        public void printAppInfo() {
+            System.out.println("App Name: " + appName);
+            System.out.println("App Version: " + appVersion);
+        }
+    }
+    ```
+
+Neste exemplo, os valores das propriedades `app.name` e `app.version` são injetados nos campos `appName` e `appVersion` da classe `AppConfig`.
+
+#### Injeção em Métodos e Construtores
+
+Você também pode usar `@Value` para injetar valores em métodos ou parâmetros de construtores.
+
+**Exemplo com Método:**
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AppConfig {
+
+    private String appName;
+
+    @Value("${app.name}")
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
+    public void printAppInfo() {
+        System.out.println("App Name: " + appName);
+    }
+}
+```
+
+**Exemplo com Construtor:**
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AppConfig {
+
+    private final String appName;
+
+    public AppConfig(@Value("${app.name}") String appName) {
+        this.appName = appName;
+    }
+
+    public void printAppInfo() {
+        System.out.println("App Name: " + appName);
+    }
+}
+```
+
+### Usando com Arquivos YAML
+
+Além de arquivos de propriedades, você pode usar arquivos YAML (`application.yml`) para definir propriedades.
+
+**Exemplo com `application.yml`:**
+
+1. **Definindo Propriedades**:
+    ```yaml
+    # application.yml
+    app:
+      name: MinhaAplicacao
+      version: 1.0.0
+    ```
+
+2. **Injetando Propriedades**:
+    ```java
+    import org.springframework.beans.factory.annotation.Value;
+    import org.springframework.stereotype.Component;
+
+    @Component
+    public class AppConfig {
+
+        @Value("${app.name}")
+        private String appName;
+
+        @Value("${app.version}")
+        private String appVersion;
+
+        public void printAppInfo() {
+            System.out.println("App Name: " + appName);
+            System.out.println("App Version: " + appVersion);
+        }
+    }
+    ```
+
+### Manipulação de Tipos Diferentes
+
+O Spring é capaz de converter automaticamente valores de propriedades para o tipo adequado, desde que o valor possa ser convertido.
+
+**Exemplo com Tipos Diferentes:**
+
+```properties
+# application.properties
+app.port=8080
+app.active=true
+```
+
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AppConfig {
+
+    @Value("${app.port}")
+    private int port;
+
+    @Value("${app.active}")
+    private boolean active;
+
+    public void printAppConfig() {
+        System.out.println("App Port: " + port);
+        System.out.println("App Active: " + active);
+    }
+}
+```
+
+### Valores Padrão
+
+Você pode fornecer valores padrão caso a propriedade não esteja definida.
+
+**Exemplo com Valores Padrão:**
+
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AppConfig {
+
+    @Value("${app.name:AplicacaoDefault}")
+    private String appName;
+
+    public void printAppInfo() {
+        System.out.println("App Name: " + appName);
+    }
+}
+```
+
+Neste exemplo, se a propriedade `app.name` não estiver definida, `appName` será definido como `AplicacaoDefault`.
+
+### Conclusão
+
+A anotação `@Value` no Spring Framework é uma ferramenta poderosa para injetar valores de propriedades em seus componentes, promovendo uma configuração flexível e fácil de gerenciar. Ao externalizar a configuração, você pode ajustar os valores sem recompilar o código, facilitando a manutenção e a adaptabilidade da aplicação a diferentes ambientes. Ao compreender e utilizar `@Value`, você pode criar aplicações mais configuráveis e adaptáveis às necessidades específicas do seu projeto.
